@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <title>Mutuum Finance™ | Home</title>
+    <meta name="description"
+        content="Mutuum Finance is a decentralized liquidity protocol enabling users to lend, borrow, and earn interest through overcollateralized crypto loans.">
+    <meta name="keywords" content="mutuum finance, mutuum, mutuum finance website, mutuum finance">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --green: #21744A;
+      --green-dark: #1a5e3a;
+      --white: #fff;
+      --gray: #f8f8f8;
+      --text: #222;
+      --text-light: #fff;
+      --text-desc: #e0e0e0;
+      --banner-bg: url('https://pplx-res.cloudinary.com/image/private/user_uploads/52519471/24df5c9f-1170-413d-bfad-66b3c23ddc44/png-1.jpg');
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--gray);
+      min-height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
+    }
+    /* Navbar */
+    .navbar {
+      width: 96vw;
+      margin: 24px auto 0 auto;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 36px;
+      border-radius: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      max-width: 1200px;
+    }
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .navbar-logo {
+      font-weight: bold;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.5px;
+    }
+    .navbar-logo:before {
+      content: "🔒";
+      font-size: 1.2em;
+      margin-right: 8px;
+    }
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .navbar-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1em;
+      font-weight: 500;
+      padding: 6px 0;
+      position: relative;
+    }
+    .navbar-links a:after {
+      content: "▼";
+      font-size: 0.7em;
+      margin-left: 4px;
+      color: #999;
+      display: none;
+    }
+    .navbar-links a:nth-child(-n+4):after {
+      display: inline;
+    }
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .navbar-currency {
+      color: #222;
+      background: #f4f4f4;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 1em;
+      font-weight: 500;
+      margin-right: 10px;
+    }
+    .navbar-cart {
+      color: #222;
+      font-size: 1.1em;
+      background: #f4f4f4;
+      border-radius: 50%;
+      padding: 6px 10px;
+      margin-right: 10px;
+    }
+    .navbar-btn {
+      background: var(--green);
+      color: var(--white);
+      padding: 12px 28px;
+      border: none;
+      border-radius: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.05em;
+      transition: background 0.2s;
+      margin-left: 10px;
+    }
+    .navbar-btn:hover {
+      background: var(--green-dark);
+    }
+    /* Hero Section */
+    .hero {
+      min-height: 90vh;
+      width: 100vw;
+      background: var(--banner-bg) center center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+    .hero-overlay {
+      background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.00) 100%);
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding-left: 80px;
+      padding-bottom: 60px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hero-title {
+      font-size: 3.3em;
+      font-weight: 700;
+      line-height: 1.05;
+      margin: 0 0 10px 0;
+      letter-spacing: -2px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      color: var(--white);
+    }
+    .hero-title span {
+      border-bottom: 4px solid #8ad47c;
+      padding-bottom: 2px;
+      display: inline-block;
+    }
+    .hero-desc {
+      font-size: 1.18em;
+      color: var(--text-desc);
+      margin-bottom: 18px;
+      max-width: 480px;
+      line-height: 1.5;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .hero-btn {
+      padding: 13px 30px;
+      border-radius: 28px;
+      font-size: 1.08em;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero-btn-primary {
+      background: #2FA56A;
+      color: #fff;
+    }
+    .hero-btn-primary:hover {
+      background: #21744A;
+    }
+    .hero-btn-secondary {
+      background: #fff;
+      color: #222;
+      border: 1px solid #d6d6d6;
+    }
+    .hero-btn-secondary:hover {
+      background: #f4f4f4;
+    }
+    .hero-btn-more {
+      background: transparent;
+      color: #fff;
+      border: none;
+      text-decoration: underline;
+      font-size: 1em;
+      margin-left: 4px;
+      cursor: pointer;
+      padding: 0 8px;
+    }
+    .hero-icons {
+      display: flex;
+      gap: 18px;
+      color: #fff;
+      font-size: 1.1em;
+      align-items: center;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .hero-icons i {
+      font-size: 1.2em;
+      margin-right: 3px;
+    }
+    .hero-info {
+      font-size:1em;
+      color:#e0e0e0;
+      margin-top: 16px;
+      width: 100%;
+      text-align: right;
+    }
+    /* Content Section */
+    .main-content {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      background: #fff;
+      border-radius: 18px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+      position: relative;
+      z-index: 3;
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-top: -80px;
+    }
+    .main-content h1, .main-content h2, .main-content h3, .main-content h4 {
+      color: #21744A;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    .main-content h1 {
+      font-size: 2.2em;
+    }
+    .main-content h2 {
+      font-size: 1.6em;
+    }
+    .main-content h3 {
+      font-size: 1.3em;
+    }
+    .main-content h4 {
+      font-size: 1.1em;
+    }
+    /* Footer */
+    .footer {
+      background: #232323;
+      color: #fff;
+      padding: 32px 0 16px 0;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .footer-social {
+      margin-bottom: 12px;
+    }
+    .footer-social a {
+      display: inline-block;
+      color: #fff;
+      font-size: 1.7em;
+      margin: 0 12px;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover {
+      color: #2FA56A;
+    }
+    .footer-copy {
+      font-size: 1em;
+      color: #bbb;
+      margin-top: 8px;
+    }
+    @media (max-width: 900px) {
+      .navbar, .hero-content, .main-content {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .navbar {
+        max-width: 99vw;
+      }
+      .hero-content, .main-content {
+        margin-left: 0;
+      }
+      .hero-content {
+        padding-bottom: 32px;
+        padding-left: 16px;
+      }
+      .hero-title {
+        font-size: 2em;
+      }
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 4px;
+        border-radius: 0;
+      }
+      .hero-content, .main-content {
+        padding: 0 8px 24px 8px;
+      }
+      .hero-title {
+        font-size: 1.3em;
+      }
+      .main-content {
+        padding: 20px 6px;
+      }
+      .hero-info {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <div class="navbar-logo">Mutuum Finance</div>
+      <div class="navbar-links">
+        <a href="#">Products</a>
+        <a href="#">App</a>
+        <a href="#">Coins</a>
+        <a href="#">Learn & Support</a>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <span class="navbar-currency"><i class="fa-solid fa-flag-usa"></i> USD</span>
+      <span class="navbar-cart"><i class="fa-solid fa-cart-shopping"></i></span>
+      <button class="navbar-btn">Get your Mutuum</button>
+    </div>
+  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h2 class="hero-title">
+          Crypto security
+made easy
+        </h2>
+        <h2 class="hero-desc">
+          Mutuum Finance is a platform that allows users to lend, borrow, and earn interest with crypto assets.
+        </h2>
+     
+        
+        <div class="hero-info">
+          2M+ Customers &nbsp; | &nbsp; 10+ Years in Bitcoin
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <div class="main-content">
+   <h1>Overview of Mutuum Finance</h1>
+  <p><a href="https://fi-mutuum-finance.github.io/">Mutuum Finance</a> (MUTM) is a decentralized, non-custodial liquidity protocol that enables users to engage as lenders, borrowers, or liquidators. Lenders deposit their crypto assets into Mutuum’s liquidity pools to earn interest, while borrowers can obtain overcollateralized loans by securing them with sufficient collateral.</p>
+
+  <p>Lenders contribute to liquidity by depositing cryptocurrencies into a pooled contract. Concurrently, borrowers can access these funds by providing collateral within the same contract. This system does not require individual loan matching but instead operates based on the collective pool of funds and the associated collaterals and borrowings.</p>
+
+  <p>Mutuum’s interest rates for both lenders and borrowers adjust automatically based on market conditions. For borrowers, the variable rate is tied to the available funds in each liquidity pool: when a high portion of the pool’s assets is borrowed, the borrowing rate increases. This mechanism encourages a balanced utilization of capital.</p>
+  
+  <p>Meanwhile, lenders earn yields that align with the borrowers’ interest payments, and a reserve factor helps ensure that liquidity remains accessible at all times. By maintaining this liquidity buffer, Mutuum aims to provide lenders with uninterrupted access to their deposits. This dynamic model rewards stakeholders who supply capital while preserving sufficient on-chain liquidity for borrowers across the ecosystem.</p>
+
+  <h2>Why Choose Mutuum Finance?</h2>
+  <p>When you choose Mutuum Finance you get a powerful DeFi platform designed to conquer the limits of traditional finance. If you are looking to access liquidity without selling your assets or high-yield lending opportunities Mutuum is the place to go with an easy, safe, and transparent process. It’s new risk-assessment and debt tokenization features are designed to bring optimal transactions for all borrowers and lenders.</p>
+
+  <h2>Key Features of Mutuum Finance</h2>
+  <ul>
+    <li><strong>Under-Collateralized Loans:</strong> Get more capital without overlocking your assets—boosting capital efficiency.</li>
+    <li><strong>Smart Contract Security:</strong> Fully audited smart contracts ensure every transaction is safe and trustless.</li>
+    <li><strong>Decentralized Risk Management:</strong> Risk is managed via decentralized governance and automated on-chain logic.</li>
+    <li><strong>Multi-Asset Support:</strong> Lend or borrow stablecoins and major cryptocurrencies like ETH, USDC, and more.</li>
+    <li><strong>Tokenized Debt Markets:</strong> Trade debt positions through tokenization, creating a new level of liquidity.</li>
+    <li><strong>User-Centric Dashboard:</strong> Simple interface to manage positions, track interest, and monitor markets.</li>
+  </ul>
+
+  
+  <h2>Getting Started with Mutuum Finance</h2>
+  <p>Getting started is simple: connect your Web3 wallet, deposit assets, and start borrowing or lending in just a few clicks. Mutuum’s intuitive interface and comprehensive guides make onboarding easy for everyone—no matter your level of DeFi experience.</p>
+
+  <h2>Mutuum Dashboard: Your DeFi Command and Control Centre</h2>
+  <p>The Mutuum Dashboard houses a simple user interface that enables users to lend, borrow, and monitor their crypto assets. The dashboard is aimed at beginner and experienced users alike and has real-time data, yield tracking and risk analytics. It’s available on web platforms and ensures seamless user interaction.</p>
+
+  <h2>Why the DeFi Community Trusts Mutuum</h2>
+  <p>Mutuum Finance has quickly gained traction as a trusted name in the DeFi space, thanks to its strong focus on innovation, transparency, and user empowerment. Its community-driven development approach, combined with ongoing improvements and open governance, makes it a standout among decentralized lending platforms.</p>
+  <p>With a vision rooted in financial inclusion and capital efficiency, Mutuum is building infrastructure for the next generation of DeFi users.</p>
+
+  <h2>FAQ</h2>
+
+  <h3>General</h3>
+  <details>
+    <summary>What is Mutuum Finance?</summary>
+    <p>Mutuum Finance is a decentralized protocol that enables users to lend and borrow various digital assets through both pool-based (P2C) and direct (P2P) models. It aims to offer accessible liquidity, flexible interest rates, and a broad selection of supported tokens—catering to diverse risk profiles and strategies within the evolving DeFi ecosystem.</p>
+  </details>
+
+  <details>
+    <summary>Will there be any maximum or minimum deposit amounts?</summary>
+    <p><a href="https://fi-mutuum-finance.github.io/">Mutuum Finance</a> does not plan to enforce strict minimum or maximum deposit limits, allowing you to supply as little or as much as you choose. That said, very small deposits may be less practical due to transaction fees, and certain assets could be subject to supply caps determined by risk management. These caps aim to protect overall protocol solvency, so you should check any current limitations before depositing larger amounts.</p>
+  </details>
+
+  <details>
+    <summary>How much will I pay in interest?</summary>
+    <p>In Mutuum’s P2C model, the interest you pay will shift dynamically based on real-time liquidity pool usage: higher utilization often leads to higher rates, while lower usage means more favorable terms. In the P2P model, you will negotiate interest rates directly with another user, resulting in customized agreements that may be higher or lower depending on asset volatility and market sentiment. Ultimately, your total cost will reflect these variables as well as any discounts or special terms the protocol plans to offer.</p>
+  </details>
+
+  <h3>Risks</h3>
+  <details>
+    <summary>What are the risks involved in using Mutuum Finance?</summary>
+    <p>Any DeFi platform carries risks, including smart contract vulnerabilities, price volatility of collateral assets, and potential liquidity shortfalls. Because blockchain transactions are final, unexpected market events or exploit attempts may lead to sudden losses. Users should carefully assess their tolerance and stay informed about ongoing protocol developments.</p>
+  </details>
+
+  <details>
+    <summary>What steps are taken to mitigate risks?</summary>
+    <p>Mutuum Finance intends to implement multiple layers of security and transparency once the platform launches. Planned measures include independent contract audits, rigorous overcollateralization requirements, and real-time monitoring of liquidity and price oracles. By keeping the code open-source and offering bug bounty programs, Mutuum aims to invite community-driven scrutiny and encourage quick disclosure of potential issues.</p>
+  </details>
+
+  <h3>Supply</h3>
+  <details>
+    <summary>Where will my deposited funds be stored?</summary>
+    <p>All deposits in Mutuum Finance reside in non-custodial smart contracts on the blockchain. You'll receive mtTokens representing your share of the liquidity pool, including accrued interest. Because the protocol cannot move or access your funds without your signature, you retain full control of your deposits. When you're ready to withdraw, you can redeem your mtTokens—assuming sufficient liquidity—along with any earned interest.</p>
+  </details>
+
+  <details>
+    <summary>How much will I earn?</summary>
+    <p>In Mutuum’s P2C model, you will deposit assets into a shared liquidity pool and earn interest that adapts to market supply and demand. As usage of the pool rises, so may your returns, but in less active periods, rates may decline. In the P2P model, you will lend directly to other users, setting custom terms. Your potential earnings can be higher but also riskier, since no pool redistributes interest. The final amount you earn will hinge on the volatility and demand for each asset, as well as your chosen lending strategy.</p>
+  </details>
+
+  <details>
+    <summary>What are mtTokens?</summary>
+    <p>mtTokens are proof-of-deposit tokens you receive when supplying assets to the Mutuum liquidity pool. These tokens represent your stake and accrue interest over time. You’ll redeem them to reclaim your original deposit plus any earned yield.</p>
+  </details>
+
+  <h3>Borrowing</h3>
+  <details>
+    <summary>Why would I borrow instead of selling my assets?</summary>
+    <p>Borrowing in Mutuum Finance will allow you to access liquidity without giving up ownership of your tokens. Rather than selling at a potentially unfavorable time or incurring taxable events, you will lock your assets as collateral while retaining exposure to future price increases. This tactic can help you fund new opportunities or short-term expenses without missing potential market gains, particularly if you believe your collateral’s value will keep growing.</p>
+  </details>
+
+  <details>
+    <summary>Why should I borrow if I need to deposit collateral?</summary>
+    <p>Borrowing with collateral allows users to unlock liquidity without selling the assets they already hold, potentially avoiding capital gains taxes or missing out on future market growth. For instance, someone who believes their ETH will appreciate might use that as collateral to borrow stablecoins and invest elsewhere, or cover immediate expenses, while still retaining exposure to ETH’s price movements. A trader could also borrow to set up hedging strategies, amplify yields via leveraged positions, or seize timely opportunities in other parts of the market - all without relinquishing ownership of key assets.</p>
+  </details>
+
+  <details>
+    <summary>When do I need to pay back the loan?</summary>
+    <p>Mutuum Finance allows you to repay your loan at any time, with no fixed end date. The position remains open as long as your collateral sufficiently covers the borrowed amount. If you decide to close out your position early, you simply settle any outstanding debt and interest, then reclaim your collateral in full.</p>
+  </details>
+
+  <h3>Liquidations</h3>
+  <details>
+    <summary>What are liquidations?</summary>
+    <p>Liquidations occur when a borrower’s collateral becomes insufficient to cover their outstanding debt, causing the protocol to sell or seize part of that collateral to recover the loan. If market conditions or price fluctuations drive your Stability Factor below the required threshold, Mutuum can trigger a liquidation to ensure the protocol remains fully backed. While it ensures the protocol remains solvent, timely monitoring and maintaining healthy collateralization can help users avoid liquidation.</p>
+  </details>
+
+  <details>
+    <summary>What is the stability factor?</summary>
+    <p>Mutuum’s Stability Factor is a metric that indicates how well-collateralized your borrowing position is. It compares the total value of your locked collateral (adjusted by risk parameters) to your borrowed amount. A higher Stability Factor suggests a safer position, offering a stronger buffer against price fluctuations in your collateral assets.</p>
+  </details>
+
+  <details>
+    <summary>What happens when my stability factor is reduced?</summary>
+    <p>If market conditions or price drops cause your Stability Factor to decline, you will face a growing risk of liquidation. Once your collateral no longer adequately covers the borrowed amount, the protocol may initiate a liquidation process, which involves selling part of your collateral to repay the debt. To avoid this outcome, you can supply more collateral or repay some of the borrowed funds, preserving a healthier Stability Factor.</p>
+  </details>
+
+  <details>
+    <summary>How do I avoid liquidation?</summary>
+    <p>The key is maintaining a healthy Stability Factor by ensuring your collateral always exceeds your debt. You can achieve this by supplying extra collateral when prices drop or by repaying part of your loan to reduce what you owe. Regularly monitoring market conditions can help you stay well above the liquidation threshold.</p>
+  </details>
+
+  <details>
+    <summary>How much is the liquidation penalty?</summary>
+    <p>Mutuum imposes a penalty fee on liquidated collateral, meant to cover protocol risks and incentivize third-party liquidators to act swiftly. The exact percentage depends on each asset’s risk parameters. This fee is added to the outstanding debt during liquidation, so keeping your collateral above the required ratio is the best way to avoid it.</p>
+  </details>
+
+
+  <h3>Conclusion</h2>
+  <p>In a digital economy where flexibility, speed, and transparency matter, Mutuum Finance delivers the tools you need to thrive. Whether you’re a crypto investor, a liquidity provider, or a borrower, Mutuum empowers you to do more with your digital assets—without compromising on security.</p>
+  <p>Make the move to smarter DeFi. Choose Mutuum Finance and reshape your financial future today.</p>
+
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-social">
+      <a href="https://twitter.com/Mutuum" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://facebook.com/Mutuum" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/Mutuum" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/Mutuum" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://youtube.com/Mutuum" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2025 Mutuum Finance. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
